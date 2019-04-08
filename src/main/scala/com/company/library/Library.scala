@@ -1,6 +1,6 @@
 package com.company.library
 
-class Library (val books :List[Book] = Books.all) {
+class Library (val books :List[Book] = Books.all, var onLoan :Set[Book] = Set[Book]()) {
 
   def searchTitle(titleSearch: String): Set[Book] = {
     var result = Set[Book]()
@@ -25,5 +25,17 @@ class Library (val books :List[Book] = Books.all) {
     }
     result
   }
+
+  def lend(isbn :String) = {
+    var result :Book = null
+    books.foreach {
+      book => if(book.ISBN == isbn) { result = book }
+    }
+    onLoan += result
+  }
+
+//  def addToOnLoan(book :Book): Unit = {
+//    this.onLoan += book
+//  }
 
 }

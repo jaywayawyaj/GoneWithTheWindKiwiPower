@@ -50,4 +50,9 @@ class LibrarySpec extends FunSuite {
     library.searchISBN("bdyxubc") shouldBe Book("Gruffalo,The", "Donaldson, Julia", "bdyxubc")
   }
 
+  test("A book can be lent out") {
+    library.lend("ipszbehyh")
+    library.onLoan should contain (Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "ipszbehyh"))
+  }
+
 }
