@@ -27,15 +27,9 @@ class Library (val books :List[Book] = Books.all, var onLoan :Set[Book] = Set[Bo
   }
 
   def lend(isbn :String) = {
-    var result :Book = null
     books.foreach {
-      book => if(book.ISBN == isbn) { result = book }
+      book => if(book.ISBN == isbn) { onLoan += book }
     }
-    onLoan += result
   }
-
-//  def addToOnLoan(book :Book): Unit = {
-//    this.onLoan += book
-//  }
 
 }
