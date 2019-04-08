@@ -18,4 +18,12 @@ class Library (val books :List[Book] = Books.all) {
     result
   }
 
+  def searchISBN(isbnSearch: String): Book = {
+    var result :Book = null
+    books.foreach {
+      book => if(book.ISBN == isbnSearch) { result = book}
+    }
+    result
+  }
+
 }
