@@ -26,4 +26,10 @@ class LibrarySpec extends FunSuite {
     )
   }
 
+  test("searching part of the authors name should return the entire book") {
+    library.searchAuthor("Atkins") shouldBe Set(
+      Book("Dr. Atkins' New Diet Revolution:The No-hunger, Luxurious Weight Loss P", "Atkins, Robert C.", "xkglrnd"),
+    )
+  }
+
 }
