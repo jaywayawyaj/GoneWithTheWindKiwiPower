@@ -5,8 +5,11 @@ import org.scalatest.Matchers._
 
 class LibrarySpec extends FunSuite {
 
-  test("some words to describe my test") {
-    "aString" shouldBe "aString"
-  }
+  val library = new Library
 
+  test("searching part of the name should return the entire book") {
+    library.searchTitle("Azkaban") shouldBe Book(
+      "Harry Potter and the Prisoner of Azkaban", "Rowling, J.K.", "iamvmb"
+    )
+  }
 }
