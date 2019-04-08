@@ -14,7 +14,6 @@ class LibrarySpec extends FunSuite {
   }
 
   test("searching part of the name should return all books that match query") {
-    println(library.searchTitle("Potter"))
     library.searchTitle("Potter") shouldEqual Set(
       Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "ipszbehyh"),
       Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "lfzowqpsj"),
