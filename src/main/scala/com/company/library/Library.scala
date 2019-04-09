@@ -37,4 +37,8 @@ class Library (
     else
       onLoan += book
   }
+
+  def bookStatus(book :Book) :String = {
+    "Available"
+  }
 }

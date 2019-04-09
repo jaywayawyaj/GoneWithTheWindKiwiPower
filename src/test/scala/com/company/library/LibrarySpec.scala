@@ -59,4 +59,8 @@ class LibrarySpec extends FunSuite {
     an [Exception] should be thrownBy library.lend(Book("Codex Seraphinianus", "Serafini, Luigi", "hetdf"))
   }
 
+  test("A book will return as available when it is not on loan") {
+    library.bookStatus(Book("Tales of Beedle the Bard,The", "Rowling, J.K.", "webvafppur")) shouldBe "Available"
+  }
+
 }
