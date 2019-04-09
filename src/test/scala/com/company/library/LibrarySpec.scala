@@ -22,9 +22,10 @@ object TestBooks {
 
 class LibrarySpec extends FunSuite {
 
-  val library = new Library
+  val library = new Library(TestBooks.all)
 
   test("searching part of the name returns the entire book") {
+    println(TestBooks.all)
     library.searchTitle("Azkaban") shouldBe Set(
       Book("Harry Potter and the Prisoner of Azkaban", "Rowling, J.K.", "iamvmb")
     )
