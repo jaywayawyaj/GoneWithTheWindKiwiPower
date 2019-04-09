@@ -1,14 +1,15 @@
 package com.company.library
 
 class Library (
-  val books :List[Book] = Books.all
+//  val books :List[Book] = Books.all
+    val books :Books.type = Books
   ) {
 
   var onLoan :Set[Book] = Set[Book]()
 
   def searchTitle(titleSearch: String): Set[Book] = {
     var result = Set[Book]()
-    books.foreach {
+    books.all.foreach {
       book => if(book.title.contains(titleSearch)) { result += book }
     }
     result
@@ -16,7 +17,7 @@ class Library (
 
   def searchAuthor(authorSearch: String): Set[Book] = {
     var result = Set[Book]()
-    books.foreach {
+    books.all.foreach {
       book => if(book.author.contains(authorSearch)) { result += book }
     }
     result
@@ -24,15 +25,13 @@ class Library (
 
   def searchISBN(isbnSearch: String): Book = {
     var result :Book = null
-    books.foreach {
+    books.all.foreach {
       book => if(book.ISBN == isbnSearch) { result = book  }
     }
     result
   }
 
-  def lend(isbn :String) :Unit = {
-    books.foreach {
-      book => if(book.ISBN == isbn) { onLoan += book }
-    }
+  def lend(book :Book) :Unit = {
+    onLoan += book
   }
 }
