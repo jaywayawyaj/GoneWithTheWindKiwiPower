@@ -1,7 +1,7 @@
 package com.company.library
 
 class Library (
-  val books :List[Book]
+  val books :List[Book] = Books.all
   ) {
 
   var onLoan :Set[Book] = Set[Book]()
