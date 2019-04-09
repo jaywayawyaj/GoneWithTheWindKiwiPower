@@ -77,12 +77,12 @@ class LibrarySpec extends FunSuite {
   }
 
   test("A book will return as available when it is not on loan") {
-    library.bookStatus(Book("Tales of Beedle the Bard,The", "Rowling, J.K.", "webvafppur")) shouldBe "Available"
+    library.isOnLoan(Book("Tales of Beedle the Bard,The", "Rowling, J.K.", "webvafppur")) shouldBe false
   }
 
   test("A book will return as unavailable when it is on loan") {
     library.lend(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"))
-    library.bookStatus(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb")) shouldBe "Unavailable"
+    library.isOnLoan(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb")) shouldBe true
   }
 
 }

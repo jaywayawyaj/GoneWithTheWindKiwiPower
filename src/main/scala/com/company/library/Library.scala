@@ -37,10 +37,7 @@ class Library (
       onLoan += book
   }
 
-  def bookStatus(book :Book) :String = {
-    if(onLoan.contains(book))
-      "Unavailable"
-    else
-      "Available"
+  def isOnLoan(book :Book) :Boolean = {
+    onLoan.contains(book)
   }
 }
