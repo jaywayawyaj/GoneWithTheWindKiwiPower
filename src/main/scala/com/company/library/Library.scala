@@ -32,6 +32,9 @@ class Library (
   }
 
   def lend(book :Book) :Unit = {
-    onLoan += book
+    if(books.reference.contains(book))
+      throw new Exception("Cannot lend reference books")
+    else
+      onLoan += book
   }
 }

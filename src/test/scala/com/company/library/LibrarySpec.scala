@@ -55,9 +55,8 @@ class LibrarySpec extends FunSuite {
     library.onLoan should contain (Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "ipszbehyh"))
   }
 
-//  test("A reference book cannot be lent out") {
-//    library.lend("hetdf")
-//
-//  }
+  test("A reference book cannot be lent out") {
+    an [Exception] should be thrownBy library.lend(Book("Codex Seraphinianus", "Serafini, Luigi", "hetdf"))
+  }
 
 }
