@@ -39,7 +39,7 @@ class LibrarySpec extends FunSuite {
       Book("Harry Potter and the Chamber of Secrets", "Rowling, J.K.", "dvceqblua"),
       Book("Harry Potter and the Prisoner of Azkaban", "Rowling, J.K.", "iamvmb"),
       Book("Harry Potter and the Half-blood Prince:Children's Edition", "Rowling, J.K.", "gdjvia"),
-      Book("Harry Potter and the Half-blood Prince", "Rowling, J.K.", "ajaoshq"),
+      Book("Harry Potter and the Half-blood Prince", "Rowling, J.K.", "ajaoshq")
     )
   }
 
@@ -81,9 +81,15 @@ class LibrarySpec extends FunSuite {
   }
 
   test("A book will return as unavailable when it is on loan") {
-    library.lend(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"))
-    library.isOnLoan(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb")) shouldBe true
+    library.lend(Book("Harry Potter and the Half-blood Prince", "Rowling, J.K.", "ajaoshq"))
+    library.isOnLoan(Book("Harry Potter and the Half-blood Prince", "Rowling, J.K.", "ajaoshq")) shouldBe true
   }
+
+
+//  test("A book which is on loan cannot be loaned out") {
+//    library.lend(Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "lfzowqpsj"))
+//    an [Exception] should be thrownBy library.lend(Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "lfzowqpsj"))
+//  }
 
   test("A book can be returned") {
     library.lend(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"))

@@ -1,4 +1,17 @@
-# Gone With The Wind
+# Gone With The Wind - Kiwi Power Tech Test
+
+My TDD'd attempt at the Library tech test in Scala provided by Kiwi Power. My first attempt at using Scala and it's testing framework FunSuite. Full specification in the appendix.
+
+## Technologies Used
+ - Scala
+ - Funsuite
+
+## My approach
+
+I started off reasonably clueless about Scala, strongly typed and function programming in general! Primarily I tried to understand these concepts better using official documentation as well as other internet resources(SGoogle, StackOverflow, Youtube etc).
+
+
+# Appendix
 
 ## Instructions
 

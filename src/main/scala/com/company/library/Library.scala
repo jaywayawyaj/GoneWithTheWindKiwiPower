@@ -19,6 +19,8 @@ class Library (
   }
 
   def lend(book :Book) :Unit = {
+//    if (isOnLoan(book))
+//      throw new Exception("This book is on loan")
     if(book.reference)
       throw new Exception("Cannot lend reference books")
     else
@@ -33,4 +35,3 @@ class Library (
     onLoan -= book
   }
 }
-
