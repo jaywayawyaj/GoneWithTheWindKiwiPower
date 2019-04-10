@@ -65,7 +65,7 @@ class LibrarySpec extends FunSuite {
   }
 
   test("searching for the ISBN returns the expected book") {
-    library.searchISBN("bdyxubc") shouldBe Book("Gruffalo,The", "Donaldson, Julia", "bdyxubc")
+    library.searchISBN("bdyxubc") shouldBe Option(Book("Gruffalo,The", "Donaldson, Julia", "bdyxubc"))
   }
 
   test("A book can be lent out") {

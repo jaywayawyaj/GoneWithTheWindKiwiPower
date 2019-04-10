@@ -16,11 +16,8 @@ class Library (
     result
   }
 
-  def searchISBN(isbnSearch: String): Book = {
-    var result :Book = null
-    books.foreach {
-      book => if(book.ISBN == isbnSearch) { result = book }
-    }
+  def searchISBN(isbnSearch: String): Option[Book] = {
+    val result = books.find(_.ISBN == isbnSearch)
     result
   }
 
