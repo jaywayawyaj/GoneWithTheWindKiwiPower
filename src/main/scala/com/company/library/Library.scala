@@ -6,17 +6,17 @@ class Library (
 
   var onLoan :Set[Book] = Set[Book]()
 
-  def searchTitle(titleSearch: String): List[Book] = {
+  def searchTitle(titleSearch: String) :List[Book] = {
     val result = books.filter(_.title.contains(titleSearch))
     result
   }
 
-  def searchAuthor(authorSearch: String): List[Book] = {
+  def searchAuthor(authorSearch: String) :List[Book] = {
     val result = books.filter(_.author.contains(authorSearch))
     result
   }
 
-  def searchISBN(isbnSearch: String): Option[Book] = {
+  def searchISBN(isbnSearch: String) :Option[Book] = {
     val result = books.find(_.ISBN == isbnSearch)
     result
   }
@@ -30,5 +30,9 @@ class Library (
 
   def isOnLoan(book :Book) :Boolean = {
     onLoan.contains(book)
+  }
+
+  def returnBook(book :Book) :Unit = {
+    onLoan -= book
   }
 }

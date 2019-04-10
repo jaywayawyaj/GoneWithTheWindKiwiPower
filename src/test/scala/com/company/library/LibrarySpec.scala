@@ -86,4 +86,10 @@ class LibrarySpec extends FunSuite {
     library.isOnLoan(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb")) shouldBe true
   }
 
+  test("A book can be returned") {
+    library.lend(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"))
+    library.returnBook(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"))
+    library.isOnLoan(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb")) shouldBe false
+  }
+
 }
