@@ -6,6 +6,18 @@ class Library (
 
   var onLoan :Set[Book] = Set[Book]()
 
+  def searchTitle(titleSearch: String) :List[Book] = {
+    books.filter(_.title.contains(titleSearch))
+  }
+
+  def searchAuthor(authorSearch: String) :List[Book] = {
+    books.filter(_.author.contains(authorSearch))
+  }
+
+  def searchISBN(isbnSearch: String) :Option[Book] = {
+    books.find(_.ISBN == isbnSearch)
+  }
+
   def lend(book :Book) :Unit = {
     if(book.reference)
       throw new Exception("Cannot lend reference books")
