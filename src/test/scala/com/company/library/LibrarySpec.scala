@@ -25,14 +25,14 @@ class LibrarySpec extends FunSuite {
   val library = new Library(TestBooks.all)
 
   test("searching part of the name returns the entire book") {
-    println(TestBooks.all)
-    library.searchTitle("Azkaban") shouldBe Set(
+    println(library.searchTitle("Azkaban"))
+    library.searchTitle("Azkaban") shouldBe List(
       Book("Harry Potter and the Prisoner of Azkaban", "Rowling, J.K.", "iamvmb")
     )
   }
 
   test("searching part of the name returns all books that match query") {
-    library.searchTitle("Potter") shouldEqual Set(
+    library.searchTitle("Potter") shouldEqual List(
       Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "ipszbehyh"),
       Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "lfzowqpsj"),
       Book("Harry Potter and the Order of the Phoenix", "Rowling, J.K.", "ymjklwq"),
@@ -45,13 +45,13 @@ class LibrarySpec extends FunSuite {
   }
 
   test("searching part of the authors name returns the entire book") {
-    library.searchAuthor("Atkins") shouldBe Set(
+    library.searchAuthor("Atkins") shouldBe List(
       Book("Dr. Atkins' New Diet Revolution:The No-hunger, Luxurious Weight Loss P", "Atkins, Robert C.", "xkglrnd"),
     )
   }
 
   test("searching part of the authors name returns all books that match query") {
-    library.searchAuthor("Rowling") shouldEqual Set(
+    library.searchAuthor("Rowling") shouldEqual List(
       Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "ipszbehyh"),
       Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "lfzowqpsj"),
       Book("Harry Potter and the Order of the Phoenix", "Rowling, J.K.", "ymjklwq"),

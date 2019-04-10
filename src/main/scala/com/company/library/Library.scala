@@ -6,19 +6,13 @@ class Library (
 
   var onLoan :Set[Book] = Set[Book]()
 
-  def searchTitle(titleSearch: String): Set[Book] = {
-    var result = Set[Book]()
-    books.foreach {
-      book => if(book.title.contains(titleSearch)) { result += book }
-    }
+  def searchTitle(titleSearch: String): List[Book] = {
+    val result = books.filter(_.title.contains(titleSearch))
     result
   }
 
-  def searchAuthor(authorSearch: String): Set[Book] = {
-    var result = Set[Book]()
-    books.foreach {
-      book => if(book.author.contains(authorSearch)) { result += book }
-    }
+  def searchAuthor(authorSearch: String): List[Book] = {
+    val result = books.filter(_.author.contains(authorSearch))
     result
   }
 
