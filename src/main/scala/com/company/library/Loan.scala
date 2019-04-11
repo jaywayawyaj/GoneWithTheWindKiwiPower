@@ -1,5 +1,3 @@
 package com.company.library
 
-class Loan {
-
-}
+case class Loan(book: Book, loanedBy: String)

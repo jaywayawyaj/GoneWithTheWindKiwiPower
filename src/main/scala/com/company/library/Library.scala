@@ -1,10 +1,12 @@
 package com.company.library
 
+//import scala.collection.mutable.
+
 class Library (
   val books :List[Book] = Books.all
   ) {
 
-  var onLoan :Set[Book] = Set[Book]()
+  var onLoan :Set[Loan] = Set[Loan]()
 
   def searchTitle(titleSearch: String) :List[Book] = {
     books.filter(_.title.contains(titleSearch))
@@ -18,20 +20,35 @@ class Library (
     books.find(_.ISBN == isbnSearch)
   }
 
-  def lend(book :Book) :Unit = {
+  def lend(book :Book, loanedBy: String) :Unit = {
 //    if (isOnLoan(book))
 //      throw new Exception("This book is on loan")
     if(book.reference)
       throw new Exception("Cannot lend reference books")
     else
-      onLoan += book
+      onLoan += Loan(book, loanedBy)
   }
 
-  def isOnLoan(book :Book) :Boolean = {
-    onLoan.contains(book)
+  def isOnLoan(bookQuery :Book) :Boolean = {
+    var result = false
+    onLoan.foreach(loan => if(loan.book == bookQuery) result = true)
+    result
   }
 
-  def returnBook(book :Book) :Unit = {
-    onLoan -= book
+  def returnBook(book :Book, loanedBy :String) :Unit = {
+    if(!isOnLoan(book))
+      throw new Exception("This book is not on loan")
+    else
+      onLoan -= Loan(book, loanedBy)
+  }
+
+  def onLoanTo(customerQuery :Book) :String = {
+    var result = ""
+    onLoan.foreach(
+      loan => if(loan.book == customerQuery)
+        result = loan.loanedBy
+    )
+    result
   }
 }
+

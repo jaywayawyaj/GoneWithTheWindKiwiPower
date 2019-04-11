@@ -68,12 +68,12 @@ class LibrarySpec extends FunSuite {
   }
 
   test("A book can be lent out") {
-    library.lend(Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "ipszbehyh"))
-    library.onLoan should contain (Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "ipszbehyh"))
+    library.lend(Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "ipszbehyh"), "Socrates")
+    library.onLoan should contain (Loan(Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "ipszbehyh"), "Socrates"))
   }
 
   test("A reference book cannot be lent out") {
-    an [Exception] should be thrownBy library.lend(Book("Codex Seraphinianus", "Serafini, Luigi", "hetdf", true))
+    an [Exception] should be thrownBy library.lend(Book("Codex Seraphinianus", "Serafini, Luigi", "hetdf", true), "Socrates")
   }
 
   test("A book will return as available when it is not on loan") {
@@ -81,7 +81,7 @@ class LibrarySpec extends FunSuite {
   }
 
   test("A book will return as unavailable when it is on loan") {
-    library.lend(Book("Harry Potter and the Half-blood Prince", "Rowling, J.K.", "ajaoshq"))
+    library.lend(Book("Harry Potter and the Half-blood Prince", "Rowling, J.K.", "ajaoshq"), "Socrates")
     library.isOnLoan(Book("Harry Potter and the Half-blood Prince", "Rowling, J.K.", "ajaoshq")) shouldBe true
   }
 
@@ -92,9 +92,21 @@ class LibrarySpec extends FunSuite {
 //  }
 
   test("A book can be returned") {
-    library.lend(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"))
-    library.returnBook(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"))
+    library.lend(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"), "Socrates")
+    library.returnBook(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"), "Socrates")
     library.isOnLoan(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb")) shouldBe false
   }
+
+  test("A book which is not on loan cannot be returned") {
+    an [Exception] should be thrownBy library.returnBook(
+      Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"), "Socrates"
+    )
+  }
+
+  test("loanedBy tells you name of book borrower") {
+    library.lend(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"), "Socrates")
+    library.onLoanTo(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb")) shouldBe "Socrates"
+  }
+
 
 }
