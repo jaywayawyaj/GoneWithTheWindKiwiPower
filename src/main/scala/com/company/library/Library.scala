@@ -41,5 +41,6 @@ class Library (
   def isLoanedBy(customerQuery :Book) :String = {
     onLoan.filter(_.book == customerQuery).head.loanedBy
   }
+
 }
 
