@@ -18,6 +18,17 @@ Once I'd got it moving I started to feel more comfortable using Scala, though.
 I started off with the initial user stories and tried to find a solution which answered them elegantly before moving on to the extended stories. I also catered for a couple of edge cases which were not in the user stories as I felt they made sense (IE. books which are not on loan being un-returnable and vice versa)
 I am happy with where I got to, although I'd begun to work on the time/overdue aspect and would have liked to have finished that.
 
+## How to use
+```angular2
+
+1. Clone this repo
+2. start sbt
+3. start the console by typing 'console'
+4. type 'import com.company.library._'
+5. create a library with 'val library = new Library' 
+
+```
+
 ## Notes
 
 There are various areas in this program where I feel improvements could be made, amongst them are:
@@ -29,6 +40,8 @@ There are various areas in this program where I feel improvements could be made,
 - removing time fully from my project
     - When I tried to remove `import java.util.Calendar` from y project it would stop over half of my tests working, an error which occurred only an hour before it was due to be submitted and I have not yet worked out how to fix it! (Screenshot of error attached - would love some clarity if you have any)
     ![screenshot](https://github.com/jaywayawyaj/GoneWithTheWindKiwiPower/blob/master/public/Screenshot%202019-04-12%20at%2011.26.24.png) 
+- Testing suite
+    - Whilst I do have 100% of tests passing, I am uncertain of test coverage. Furthermore, I feel like there are probably more elegant ways to write the testing suite with something like a before each block etc. 
     
 # Appendix
 
@@ -40,6 +53,7 @@ You have a library of books and are offering them to the world - you are lending
 
 * clone the project
 * import via IntelliJ IDEA
+
 
 ##### Requirements
 
