@@ -27,6 +27,8 @@ There are various areas in this program where I feel improvements could be made,
 - unclear/hard to read lines
     - in my isLoanedBy function I have a long line of functions to get the name of the borrower - I am not certain if I should have kept it as a loop. I feel like the line I left is perhaps a little unclear, but I was striving to be more 'Scala-esque' (as a person qho answered my query on StackOverflow cited with regards to another loop elsewhere)
 - removing time fully from my project
+    - When I tried to remove `import java.util.Calendar` from y project it would stop over half of my tests working, an error which occurred only an hour before it was due to be submitted and I have not yet worked out how to fix it! (Screenshot of error attached - would love some clarity if you have any)
+    ![screenshot](https://github.com/jaywayawyaj/GoneWithTheWindKiwiPower/blob/master/public/Screenshot%202019-04-12%20at%2011.26.24.png) 
     
 # Appendix
 
