@@ -9,8 +9,25 @@ My TDD'd attempt at the Library tech test in Scala provided by Kiwi Power. My fi
 ## My approach
 
 I started off reasonably clueless about Scala, strongly typed and function programming in general! Primarily I tried to understand these concepts better using official documentation as well as other internet resources(SGoogle, StackOverflow, Youtube etc).
+I began by approaching it from the OO/imperative paradigm that I am more familiar with and tried in paces to make it more functional (purer functions etc), although I think my success in this field was reasonably limited.
 
+Getting my head around how to successfully use a strongly types language like Scala was a nice challenge - it forced me to think deeply about what I expected from every line I wrote.
+It took a while to get the ball rolling in this respect, just writing functions and using them correctly felt tricksome to begin with. 
+Once I'd got it moving I started to feel more comfortable using Scala, though.
 
+I started off with the initial user stories and tried to find a solution which answered them elegantly before moving on to the extended stories. I also catered for a couple of edge cases which were not in the user stories as I felt they made sense (IE. books which are not on loan being un-returnable and vice versa)
+I am happy with where I got to, although I'd begun to work on the time/overdue aspect and would have liked to have finished that.
+
+## Notes
+
+There are various areas in this program where I feel improvements could be made, amongst them are:
+
+- using a more functional approach
+    - I struggled to understand how to implement a truly functional style, and with the option of using a more OO approach I feel I relied on that quite heavily
+- unclear/hard to read lines
+    - in my isLoanedBy function I have a long line of functions to get the name of the borrower - I am not certain if I should have kept it as a loop. I feel like the line I left is perhaps a little unclear, but I was striving to be more 'Scala-esque' (as a person qho answered my query on StackOverflow cited with regards to another loop elsewhere)
+- removing time fully from my project
+    
 # Appendix
 
 ## Instructions
