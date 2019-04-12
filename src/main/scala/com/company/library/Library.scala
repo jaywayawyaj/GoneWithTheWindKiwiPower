@@ -28,9 +28,7 @@ class Library (
   }
 
   def isOnLoan(bookQuery :Book) :Boolean = {
-    var result = false
-    onLoan.foreach(loan => if(loan.book == bookQuery) result = true)
-    result
+    onLoan.exists(loan => loan.book == bookQuery)
   }
 
   def returnBook(book :Book, loanedBy :String) :Unit = {
@@ -40,7 +38,7 @@ class Library (
       onLoan -= Loan(book, loanedBy)
   }
 
-  def onLoanTo(customerQuery :Book) :String = {
+  def isLoanedBy(customerQuery :Book) :String = {
     var result = ""
     onLoan.foreach(
       loan => if(loan.book == customerQuery)

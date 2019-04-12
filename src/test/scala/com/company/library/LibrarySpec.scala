@@ -105,7 +105,7 @@ class LibrarySpec extends FunSuite {
 
   test("loanedBy tells you name of book borrower") {
     library.lend(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"), "Socrates")
-    library.onLoanTo(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb")) shouldBe "Socrates"
+    library.isLoanedBy(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb")) shouldBe "Socrates"
   }
 
 
