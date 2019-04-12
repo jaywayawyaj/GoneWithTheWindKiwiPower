@@ -19,8 +19,8 @@ class Library (
   }
 
   def lend(book :Book, loanedBy: String) :Unit = {
-//    if (isOnLoan(book))
-//      throw new Exception("This book is on loan")
+    if (isOnLoan(book))
+      throw new Exception("This book is on loan")
     if(book.reference)
       throw new Exception("Cannot lend reference books")
     else
@@ -39,12 +39,7 @@ class Library (
   }
 
   def isLoanedBy(customerQuery :Book) :String = {
-    var result = ""
-    onLoan.foreach(
-      loan => if(loan.book == customerQuery)
-        result = loan.loanedBy
-    )
-    result
+    onLoan.filter(_.book == customerQuery).head.loanedBy
   }
 }
 

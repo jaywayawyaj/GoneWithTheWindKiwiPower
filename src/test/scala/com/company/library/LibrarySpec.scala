@@ -86,10 +86,10 @@ class LibrarySpec extends FunSuite {
   }
 
 
-//  test("A book which is on loan cannot be loaned out") {
-//    library.lend(Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "lfzowqpsj"))
-//    an [Exception] should be thrownBy library.lend(Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "lfzowqpsj"))
-//  }
+  test("A book which is on loan cannot be loaned out") {
+    library.lend(Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "lfzowqpsj"), "Socrates")
+    an [Exception] should be thrownBy library.lend(Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "lfzowqpsj"), "Aristotle")
+  }
 
   test("A book can be returned") {
     library.lend(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"), "Socrates")
@@ -107,6 +107,5 @@ class LibrarySpec extends FunSuite {
     library.lend(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb"), "Socrates")
     library.isLoanedBy(Book("Harry Potter and the Goblet of Fire", "Rowling, J.K.", "krsmrccb")) shouldBe "Socrates"
   }
-
 
 }
